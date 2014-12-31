@@ -18,7 +18,7 @@ body {
 .sectionBar {
 	margin-top: 40px;
 }
-.inner, .sectionHeader, .sectionBar {
+.inner {
 	width: 70%;
 	margin-left: 15%;
 }
@@ -42,6 +42,8 @@ body {
 
 #Home {
 	text-align: center;
+	background-image: url("images/1.png");
+	background-position: left top;
 }
 #Home_Name {
 	font-size: 500%;
@@ -56,7 +58,8 @@ body {
 
 
 #About {
-	background-color: #f9f9f9;
+	background-image: url("images/2.png");
+	background-position: left top;
 }
 #portrait {
 }

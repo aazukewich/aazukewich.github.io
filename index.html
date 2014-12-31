@@ -9,6 +9,22 @@
     <link href="css/mysite.css" rel="stylesheet">
   </head>
   <body>
+    <!--
+      hiding navbar
+
+      links
+      -bio
+      -music player
+      -(video)
+      -pictures
+      -dates
+      -contact
+
+      player in nabber, playlist elsewhere
+      similar to josh
+
+      contact form
+    !-->
     <nav class="navbar navbar-default navbar-fixed-top shadow" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -26,7 +42,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li><a class "myNavLinks" id = "AboutLink">ABOUT</a></li>
-              <li><a class "myNavLinks" id = "MusicLink">MUSIC</a></li>
+              <li><a class "myNavLinks" id = "MusicLink" data-toggle="modal" data-target="#musicModal">MUSIC</a></li>
               <li><a class "myNavLinks" id = "PhotosLink">PHOTOS</a></li>
               <li><a class "myNavLinks" id = "ShowsLink">DATES</a></li>
               <li><a class "myNavLinks" id = "ContactLink">CONTACT</a></li>
@@ -41,31 +57,58 @@
       <h3 id="Home_Describe">Pianist, Composer, Teacher</h3>
     </div>
     <div id = "About" class = "container mySections">
-      <h1 class = "sectionHeader">ABOUT</h1>
-      <hr class = "sectionBar"/>
       <div class = "inner">
+        <h1 class = "sectionHeader">ABOUT</h1>
+        <hr class = "sectionBar"/>
         <div class="row">
           <div class="col-md-4">
-            <img src="portrait.jpg" id="portrait"/>
+            <img src="images/portrait.jpg" id="portrait"/>
           </div>
           <div class="col-md-8">
-
+          <p>Your description and everything goes in here.
           </div>
         </div>
       </div>
     </div>
+
     <div id = "Photos" class = "container mySections">
-      <h1 class = "sectionHeader">PHOTOS</h1>
-      <hr class = "sectionBar"/>
+      <div class = "inner">
+        <h1 class = "sectionHeader">PHOTOS</h1>
+        <hr class = "sectionBar"/>
+
+      </div>
     </div>
+
     <div id = "Shows" class = "container mySections">
-      <h1 class = "sectionHeader">SHOWS</h1>
-      <hr class = "sectionBar"/>
+      <div class = "inner">
+        <h1 class = "sectionHeader">SHOWS</h1>
+        <hr class = "sectionBar"/>
+      
+      </div>
     </div>
+
     <div id = "Contact" class = "container mySections">
-    <h1 class = "sectionHeader">CONTACT</h1>
-      <hr class = "sectionBar"/>
+      <div class = "inner">
+        <h1 class = "sectionHeader">CONTACT</h1>
+        <hr class = "sectionBar"/>
+      
+      </div>
     </div>
+
+    <div class="modal fade" id="musicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h2 class="modal-title" id="myModalLabel">Music</h2>
+          </div>
+          <div class="modal-body">
+            <p>Hey this is where we put your player when we make it...</p>
+          </div>
+        </div>
+      </div>
+    </div>  
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
