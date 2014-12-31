@@ -3,14 +3,13 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jason Zukewich</title>
+    <title>Aaron Zukewich</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="mysite.css" rel="stylesheet">
+    <link href="css/mysite.css" rel="stylesheet">
   </head>
-  <body onresize="resizeScrolling()" onload="resizeScrolling()">
-
-  <nav class="navbar navbar-default navbar-fixed-top shadow" role="navigation">
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top shadow" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -19,173 +18,39 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand myNavLinks" id="Top">Jason Zukewich</a>
+          <a class="navbar-brand myNavLinks" id="Top">Aaron Zukewich</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-              <li><a class "myNavLinks" id = "About" style="color: #888">About</a></li>
-              <li><a class "myNavLinks" id = "Projects" style="color: #888">Projects</a></li>
-              <li><a class "myNavLinks" id = "Experiences" style="color: #888">Experiences</a></li>
-              <li><a class "myNavLinks" id = "Contact" style="color: #888">Contact</a></li>
+              <li><a class "myNavLinks" id = "PicturesLink">Music</a></li>
+              <li><a class "myNavLinks" id = "AboutLink">About</a></li>
+              <li><a class "myNavLinks" id = "PicturesLink">Pictures</a></li>
+              <li><a class "myNavLinks" id = "DatesLink">Dates</a></li>
+              <li><a class "myNavLinks" id = "ContactLink">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+              <li><a class "myNavLinks" id = "PicturesLink">Music</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div id="backgrounddiv">
-      <div id="backgrounddivtop" class="container">
-        <div id="toptext" class="container">
-            <h1 id="topname">Jason Zukewich</h1>
-            <hr width="75%" style="height:2px; border:none; color:#fff; background-color:#fff;"></hr>
-            <p class="toplinks"> Mathie | Coder</p>
-        </div>
-      </div>
-      <div id="backgrounddivmid"></div>
-      <div id="backgrounddivbottom" class="container">
-        <div id="bottext" class="container">
-            <h1 id="botname">Want to know more?</h1>
-            <hr width="75%" style="height:2px; border:none; color:#fff; background-color:#fff;"></hr>
-            <a href="https://github.com/jgzuke" class="toplinks" target="_blank"> Github </a><p class="topDividers">|</p>
-            <a href="https://ca.linkedin.com/in/jzukewich/" class="toplinks" target="_blank"> LinkedIn </a><p class="topDividers">|</p>
-            <a href="Jason_Zukewich_Resume.pdf" class="toplinks" target="_blank"> Resume </a>
-        </div>
-      </div>
+
+    <div id = "Home">
+
     </div>
+    <div id = "About">
 
-    <div class="transparent" id="topTrans"></div>
-
-    <div id="scrolling" class = "shadow">
-      <div id="profileWithHeader" class="container">
-        <h1 class="myheaders" id="aboutHeader">My Story</h1>
-        <hr class="mydividers"></hr>
-        <div id="profile" class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <h3 class="paragraphheaders mytext">Passions</h3>
-              <p class="paragraphs"><strong>Math: </strong>What's better than elegantly solving a problem, or stumbling across a cool pattern</p>
-              <p class="paragraphs"><strong>Code: </strong>Stackoverflow addict. You rarely see me smile wider than when my code works</p>
-              <p class="paragraphs"><strong>Helping: </strong>Helping makes you feel incredible, whether it's tutoring or volunteering</p>
-              <p class="paragraphs"><strong>Learning: </strong>Theres so much out there to learn, it's hard to decide where to start</p>
-              <h3 class="paragraphheaders">Languages</h3>
-              <p class="paragraphs"><strong>Proficient: </strong>
-              Java, Android, C</p>
-              <p class="paragraphs"><strong>Experienced: </strong>
-              C++, Python, HTML, CSS, JavaScript</p>
-            </div>
-            <div class="col-md-4 text-center">
-              <img src="displaypic.png" id="myimage"/>
-            </div>
-            <div class="col-md-4">
-              <h3 class="paragraphheaders">Education</h3>
-              <p class="paragraphs"><strong>UWaterloo - Software Engineering</strong>
-              <br/>Eng Ambassador, Eng Society Director</p>
-              <p class="paragraphs"><strong>Ontario Science Centre - Science School</strong>
-              <br/>1 of 28 students in Semester 64, OSC Host</p>
-              <p class="paragraphs"><strong>Grimsby Secondary School</strong>
-              <br/>Robotics Club, Me to We, Prefects, Students in Action, Tutoring, All Bands</p>
-
-              <h3 class="paragraphheaders">Online Courseware</h3>
-              <p class="paragraphs"><strong>Udacity: </strong>
-              Intro to Statistics, Algorithms, Software Testing, Differential Equations in Action</p>
-              <p class="paragraphs"><strong>Codecademy: </strong>
-              A ton</p>
-            </div>
-          </div>
-          <p class="psssssst" text-align="center">For more information check out my <a href="https://github.com/jgzuke" target="_blank"> Github </a> and 
-          <a href="https://ca.linkedin.com/in/jzukewich/" target="_blank"> LinkedIn </a>, or email me at jzukewic@uwaterloo.ca</p>
-        </div>  
-      </div>
-      <div id="projectsWithHeader" class="container">
-        <h1 class="myheaders" id="projectsHeader">Projects</h1>
-        <HR class="mydividers"></HR>
-        <div id="projects" class="container">
-          <div id = "projectRow" class="row">
-            <div id = "project1" class="col-md-6 shadowSmall">
-              <div>
-                <img src="screenshots/wom/menu.png" class = "project1slide" id = "firstPicture"/>
-                <img src="screenshots/wom/start.png" class = "project1slide"/>
-                <img src="screenshots/wom/play.png" class = "project1slide"/>
-                <img src="screenshots/wom/store.png" class = "project1slide"/>
-              </div>
-              <div>
-                <img src="screenshots/wom/des1.png" class = "project1describe"/>
-                <img src="screenshots/wom/des2.png" class = "project1describe"/>
-                <img src="screenshots/wom/des3.png" class = "project1describe"/>
-                <img src="screenshots/wom/des4.png" class = "project1describe"/>
-              </div>
-              <a href="https://github.com/jgzuke/WarOfMyths" target="_blank"><img src="github.png" class = "githublink" id = "git1"/></a>
-            </div>
-            <div id = "project2" class="col-md-6 shadowSmall">
-              <div>
-                <img src="screenshots/database/main.png" class = "project2slide"/>
-                <img src="screenshots/database/new.png" class = "project2slide"/>
-                <img src="screenshots/database/find.png" class = "project2slide"/>
-                <img src="screenshots/database/move.png" class = "project2slide"/>
-              </div>  
-              <div>
-                <img src="screenshots/database/des1.png" class = "project2describe"/>
-                <img src="screenshots/database/des2.png" class = "project2describe"/>
-                <img src="screenshots/database/des3.png" class = "project2describe"/>
-                <img src="screenshots/database/des4.png" class = "project2describe"/>
-              </div>
-              <a href="https://github.com/jgzuke/Find-Me-Web-App" target="_blank"><img src="github.png" class = "githublink" id = "git2"/></a>
-            </div>
-          </div>
-          <div id = "projectRow2" class="row">
-            <div id = "project3" class="col-md-6 shadowSmall">
-              <div>
-                <img src="screenshots/website/website.png" class = "project3slide"/>
-              </div>  
-              <div>
-                <img src="screenshots/website/des1.png" class = "project3describe"/>
-              </div>
-              <a href="https://github.com/jgzuke/jgzuke.github.io" target="_blank"><img src="github.png" class = "githublink" id = "git3"/></a>
-            </div>
-            <div id = "project4" class="col-md-6 shadowSmall">
-              <div>
-                <img src="screenshots/notif/main.png" class = "project4slide"/>
-                <img src="screenshots/notif/rule.png" class = "project4slide"/>
-                <img src="screenshots/notif/time.png" class = "project4slide"/>
-              </div>  
-              <div>
-                <img src="screenshots/notif/des1.png" class = "project4describe"/>
-                <img src="screenshots/notif/des2.png" class = "project4describe"/>
-                <img src="screenshots/notif/des3.png" class = "project4describe"/>
-              </div>
-              <a href="https://github.com/jgzuke/NotificationsManager" target="_blank"><img src="github.png" class = "githublink" id = "git4"/></a>
-            </div>
-          </div>
-        </div>
-        <p class="psssssst" text-align="center">Psssst if you want to check out my code it's all on my <a href="https://github.com/jgzuke" target="_blank"> Github </a></p>
-      </div>
-      <div id="experiencesWithHeader" class="container">
-        <h1 class="myheaders" id="projectsHeader">Experiences</h1>
-        <HR class="mydividers"></HR>
-        <div id="experiences" class="container">
-          <div id = "experienceRow" class="row">
-            <div id = "experience1" class="col-md-6 shadowSmall">
-              <div>
-                <img src="screenshots/osc/menu.png" class = "experience1slide" id = "firstPicture"/>
-              </div>
-              <div>
-                <a href="https://www.ontariosciencecentre.ca/" target="_blank"><img src="screenshots/osc/des1.png" class = "experience1describe"/></a>
-              </div>
-            </div>
-            <div id = "experience2" class="col-md-6 shadowSmall">
-              <div>
-                <img src="screenshots/sipo/main.png" class = "experience2slide"/>
-              </div>  
-              <div>
-                <a href="https://www.sipofoundation.org/" target="_blank"><img src="screenshots/sipo/des1.png" class = "experience2describe"/></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="psssssst" text-align="center">Some awesome stuff i've had the chance to be a part of</p>
-      </div>
     </div>
+    <div id = "Pictures">
 
-    <div class="transparent" id="botTrans"></div>
+    </div>
+    <div id = "Dates">
+
+    </div>
+    <div id = "Contact">
+
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
