@@ -24,7 +24,9 @@ body {
 }
 
 
-
+#navbarFull {
+	background-color : #FFFFFF !important;
+}
 #HomeLink {
 	margin-top: 12px;
 	font-size: 200%;
@@ -34,8 +36,8 @@ body {
 	height: 60px !important;
 	font-size: 140%;
 }
-.myNavLinks {
-	
+.myNavLinks, li {
+	cursor: pointer;
 }
 
 
