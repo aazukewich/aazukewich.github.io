@@ -11,7 +11,7 @@
 	}, 'slow');
 });*/
 var currentSong = 0;
-var songs = ['song1', 'song2];
+var songs = ['song1', 'song2'];
 var numOfSongs = 2;
 
 audio = $('#player').bind('ended', function() {
