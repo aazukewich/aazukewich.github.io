@@ -1,0 +1,107 @@
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #FFF;
+}
+
+
+.mySections {
+	height: 100vh;
+	width: 100%;
+}
+.sectionHeader {
+	margin-top: 130px;
+	margin-left: 40px;
+	font-weight: 100;
+}
+.sectionBar {
+	margin-top: 40px;
+}
+.inner {
+	width: 70%;
+	margin-left: 15%;
+}
+
+
+
+#navbarFull {
+	background-color : rgba(0,0,0,0.8) !important;
+	height: 80px !important;
+	color: #FFF;
+}
+#HomeLink {
+	margin-top: 12px;
+	font-size: 200%;
+}
+#navbar {
+	margin-top: 15px;
+	font-size: 140%;
+}
+.myNavLinks, li {
+	cursor: pointer;
+}
+.musicButton {
+	width: 20px;
+	height: 20px;
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-top: 12px;
+}
+.playSong {
+	position: fixed;
+	margin-top: 0px;
+}
+.pauseSong {
+}
+
+
+
+
+#Home {
+	text-align: center;
+	background-image: url("black2.jpeg");
+}
+#Home_Name {
+	font-size: 500%;
+	margin-top: 40vh;
+	font-weight: 100;
+}
+#Home_Describe {
+	font-style: italic;
+	font-weight: 80;
+}
+
+
+
+#About {
+	background-image: url("black.jpg");
+}
+#portrait {
+}
+
+
+#Photos {
+	background-image: url("black.jpg");
+}
+
+
+
+
+#Shows {
+	background-image: url("black.jpg");
+}
+
+
+
+
+
+#Music {
+	background-image: url("black.jpg");
+}
+
+
+#Contact {
+	background-image: url("black.jpg");
+}
+
+
