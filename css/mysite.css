@@ -45,13 +45,13 @@ body {
 	height: 20px;
 	margin-left: 6px;
 	margin-right: 6px;
-	margin-top: 12px;
+	margin-top: -20px;
 }
-.playSong {
-	position: fixed;
-	margin-top: 0px;
+#playerControls {
+	margin-top: 8px;
 }
-.pauseSong {
+#expandNavbar {
+	margin-top: 22px !important;
 }
 
 
