@@ -1,9 +1,8 @@
 body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-	color: #555;
+	color: #FFF;
 }
-
 
 
 .mySections {
@@ -24,8 +23,11 @@ body {
 }
 
 
+
 #navbarFull {
-	background-color : #FFFFFF !important;
+	background-color : rgba(0,0,0,0.8) !important;
+	height: 80px !important;
+	color: #FFF;
 }
 #HomeLink {
 	margin-top: 12px;
@@ -33,19 +35,31 @@ body {
 }
 #navbar {
 	margin-top: 15px;
-	height: 60px !important;
 	font-size: 140%;
 }
 .myNavLinks, li {
 	cursor: pointer;
 }
+.musicButton {
+	width: 20px;
+	height: 20px;
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-top: 12px;
+}
+.playSong {
+	position: fixed;
+	margin-top: 0px;
+}
+.pauseSong {
+}
+
 
 
 
 #Home {
 	text-align: center;
-	background-image: url("images/1.png");
-	background-position: left top;
+	background-image: url("black2.jpeg");
 }
 #Home_Name {
 	font-size: 500%;
@@ -60,27 +74,34 @@ body {
 
 
 #About {
-	background-image: url("images/2.png");
-	background-position: left top;
+	background-image: url("black.jpg");
 }
 #portrait {
 }
 
 
 #Photos {
-
+	background-image: url("black.jpg");
 }
+
 
 
 
 #Shows {
-	background-color: #f9f9f9;
+	background-image: url("black.jpg");
 }
 
 
 
-#Contact {
 
+
+#Music {
+	background-image: url("black.jpg");
+}
+
+
+#Contact {
+	background-image: url("black.jpg");
 }
 
 
