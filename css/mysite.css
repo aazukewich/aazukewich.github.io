@@ -28,8 +28,10 @@ body {
 
 #navbarFull {
 	background-color : rgba(0,0,0,0.8) !important;
+	border-color: transparent;
+}
+#navbarMain {
 	height: 80px !important;
-	color: #FFF;
 }
 #HomeLink {
 	margin-top: 12px;
@@ -41,6 +43,7 @@ body {
 }
 .myNavLinks, li {
 	cursor: pointer;
+	font-size: 80%;
 }
 .musicButton {
 	width: 20px;
@@ -49,12 +52,11 @@ body {
 	margin-right: 6px;
 	margin-top: -20px;
 }
+audio {
+    background-color: transparent !important;
+}
 #playerControls {
 	margin-top: 8px;
-	background-color: transparent !important;
-}
-#controls {
-	background-color: transparent !important;
 }
 #expandNavbar {
 	margin-top: 22px !important;
