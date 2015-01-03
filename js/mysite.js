@@ -11,8 +11,8 @@
 	}, 'slow');
 });*/
 var currentSong = 0;
-var songs = ['song1', 'song2'];
-var numOfSongs = 2;
+var songs = ['Away From Home', 'Beatrice', 'Down By The River', 'Emily', 'Fly Me To The Moon', 'Original', 'Stella By Starlight', 'Tire Swing Era'];
+var numOfSongs = 8;
 
 audio = $('#player').bind('ended', function() {
 	currentSong++;

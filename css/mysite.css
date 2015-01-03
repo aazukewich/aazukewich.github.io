@@ -8,6 +8,8 @@ body {
 .mySections {
 	height: 100vh;
 	width: 100%;
+	background-repeat:no-repeat;
+	background-size: cover;
 }
 .sectionHeader {
 	margin-top: 130px;
@@ -26,8 +28,10 @@ body {
 
 #navbarFull {
 	background-color : rgba(0,0,0,0.8) !important;
+	border-color: transparent;
+}
+#navbarMain {
 	height: 80px !important;
-	color: #FFF;
 }
 #HomeLink {
 	margin-top: 12px;
@@ -39,6 +43,7 @@ body {
 }
 .myNavLinks, li {
 	cursor: pointer;
+	font-size: 80%;
 }
 .musicButton {
 	width: 20px;
@@ -47,12 +52,11 @@ body {
 	margin-right: 6px;
 	margin-top: -20px;
 }
+audio {
+    background-color: transparent !important;
+}
 #playerControls {
 	margin-top: 8px;
-	background-color: transparent !important;
-}
-#controls {
-	background-color: transparent !important;
 }
 #expandNavbar {
 	margin-top: 22px !important;
@@ -63,7 +67,7 @@ body {
 
 #Home {
 	text-align: center;
-	background-image: url("black2.jpeg");
+	background-image: url("1c.jpg");
 }
 #Home_Name {
 	font-size: 500%;
@@ -78,21 +82,21 @@ body {
 
 
 #About {
-	background-image: url("black.jpg");
+	background-image: url("3.jpg");
 }
 #portrait {
 }
 
 
 #Photos {
-	background-image: url("black.jpg");
+	background-image: url("3e.jpg");
 }
 
 
 
 
 #Shows {
-	background-image: url("black.jpg");
+	background-image: url("3b.jpg");
 }
 
 
@@ -100,7 +104,7 @@ body {
 
 
 #Music {
-	background-image: url("black.jpg");
+	background-image: url("2b.jpg");
 }
 #musicModal {
 	color: #000;
@@ -109,7 +113,7 @@ body {
 
 
 #Contact {
-	background-image: url("black.jpg");
+	background-image: url("3a.jpg");
 }
 
 
