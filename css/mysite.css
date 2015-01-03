@@ -45,13 +45,17 @@ body {
 	height: 20px;
 	margin-left: 6px;
 	margin-right: 6px;
-	margin-top: 12px;
+	margin-top: -20px;
 }
-.playSong {
-	position: fixed;
-	margin-top: 0px;
+#playerControls {
+	margin-top: 8px;
+	background-color: transparent !important;
 }
-.pauseSong {
+#controls {
+	background-color: transparent !important;
+}
+#expandNavbar {
+	margin-top: 22px !important;
 }
 
 
@@ -98,6 +102,10 @@ body {
 #Music {
 	background-image: url("black.jpg");
 }
+#musicModal {
+	color: #000;
+}
+
 
 
 #Contact {

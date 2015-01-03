@@ -11,62 +11,34 @@
 	}, 'slow');
 });*/
 var currentSong = 0;
-var songs = ['audio/song1.mp3', 'audio/song2.mp3', 'audio/song3.mp3'];
-var playingnow = 1;
+var songs = ['song1', 'song2'];
+var numOfSongs = 2;
 
-function playSong(songNum){
-    currentSong=songNum;
-    changeSong();
+audio = $('#player').bind('ended', function() {
+	currentSong++;
+	if(currentSong>numOfSongs-1) currentSong =0;
+	playSong(currentSong);
+}).get(0);
+
+function playSong(index){
+	audio.src = songs[index] + '.mp3';
+    audio.play();
 }
 //to use in other
 function prevSong(){
-    if (currentSong > 0){
-        currentSong -= 1;
-        changeSong();
-    };
+	currentSong--;
+    if (currentSong < 0){
+        currentSong = numOfSongs-1;
+    }
+    playSong(currentSong);
 }
 function nextSong(){
-    if (currentSong < songs.length){
-        currentSong += 1;
-        changeSong();
-    };
+    currentSong++;
+    if (currentSong > numOfSongs-1){
+        currentSong = 0;
+    }
+    playSong(currentSong);
 }
-function changeSong(){
-    var newSong = songs[currentSong];
-    var player = document.getElementById('audio');
-    player.setAttribute('src', newSong);
-    player.load();
-    play();
-}
-function togglePlay(){
-	if(playingnow == 1)
-	{
-		pause();
-	} else
-	{
-		play();
-	}
-}
-function play()
-{
-	playingnow = 1;
-    $('.playSong').hide();
-    $('.pauseSong').show();
-    var player = document.getElementById('audio');
-    player.play();
-}
-function pause()
-{
-	playingnow = 0;
-    $('.playSong').show();
-    $('.pauseSong').hide();
-    var player = document.getElementById('audio');
-    player.pause();
-}
-$(document).ready(function()
-{
-	$('.playSong').hide();
-});
 
 // scrolling with navbar
 $('#HomeLink').click(function()
