@@ -2,6 +2,7 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	color: #FFF;
+	background-color: #000;
 }
 
 
@@ -67,16 +68,18 @@ audio {
 
 #Home {
 	text-align: center;
-	background-image: url("1c.jpg");
+	background-image: url("1.jpg");
 }
 #Home_Name {
-	font-size: 500%;
-	margin-top: 40vh;
+	font-size: 400%;
+	margin-top: 20vh;
 	font-weight: 100;
 }
 #Home_Describe {
 	font-style: italic;
-	font-weight: 80;
+	margin-top: 2vh;
+	font-weight: 50;
+	font-size: 150%;
 }
 
 
@@ -89,14 +92,14 @@ audio {
 
 
 #Photos {
-	background-image: url("3e.jpg");
+	background-image: url("99.jpg");
 }
 
 
 
 
 #Shows {
-	background-image: url("3b.jpg");
+	background-image: url("2.jpg");
 }
 
 
@@ -104,16 +107,19 @@ audio {
 
 
 #Music {
-	background-image: url("2b.jpg");
+	background-image: url("5.jpg");
 }
 #musicModal {
 	color: #000;
+}
+.songList {
+	cursor: pointer;
 }
 
 
 
 #Contact {
-	background-image: url("3a.jpg");
+	background-image: url("4.jpg");
 }
 
 
