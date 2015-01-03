@@ -8,6 +8,8 @@ body {
 .mySections {
 	height: 100vh;
 	width: 100%;
+	background-repeat:no-repeat;
+	background-size: cover;
 }
 .sectionHeader {
 	margin-top: 130px;
@@ -63,7 +65,7 @@ body {
 
 #Home {
 	text-align: center;
-	background-image: url("black2.jpeg");
+	background-image: url("1c.jpg");
 }
 #Home_Name {
 	font-size: 500%;
@@ -78,21 +80,21 @@ body {
 
 
 #About {
-	background-image: url("black.jpg");
+	background-image: url("3.jpg");
 }
 #portrait {
 }
 
 
 #Photos {
-	background-image: url("black.jpg");
+	background-image: url("3e.jpg");
 }
 
 
 
 
 #Shows {
-	background-image: url("black.jpg");
+	background-image: url("3b.jpg");
 }
 
 
@@ -100,7 +102,7 @@ body {
 
 
 #Music {
-	background-image: url("black.jpg");
+	background-image: url("2b.jpg");
 }
 #musicModal {
 	color: #000;
@@ -109,7 +111,7 @@ body {
 
 
 #Contact {
-	background-image: url("black.jpg");
+	background-image: url("3a.jpg");
 }
 
 
