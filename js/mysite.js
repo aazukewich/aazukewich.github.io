@@ -20,9 +20,21 @@ audio = $('#player').bind('ended', function() {
 	playSong(currentSong);
 }).get(0);
 
+function play()
+{
+	$('.playSong').hide();
+    $('.pauseSong').show();
+	audio.play();
+}
+function pause()
+{
+	$('.playSong').show();
+    $('.pauseSong').hide();
+    audio.pause();
+}
 function playSong(index){
 	audio.src = songs[index] + '.mp3';
-    audio.play();
+    play();
 }
 //to use in other
 function prevSong(){
@@ -39,6 +51,10 @@ function nextSong(){
     }
     playSong(currentSong);
 }
+$(document).ready(function()
+{
+	$('.pauseSong').hide();
+});
 
 // scrolling with navbar
 $('#HomeLink').click(function()
@@ -55,11 +71,11 @@ $('#AboutLink').click(function()
 		scrollTop: $('#About').offset().top
 	}, 'slow');
 });
-$('#PhotosLink').click(function()
+$('#MusicLink').click(function()
 {
 	$('html, body').animate(
 	{
-		scrollTop: $('#Photos').offset().top
+		scrollTop: $('#Music').offset().top
 	}, 'slow');
 });
 $('#ShowsLink').click(function()

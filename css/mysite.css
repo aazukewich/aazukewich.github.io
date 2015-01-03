@@ -11,6 +11,7 @@ body {
 	width: 100%;
 	background-repeat:no-repeat;
 	background-size: cover;
+	background-position: center;
 }
 .sectionHeader {
 	margin-top: 130px;
@@ -37,6 +38,7 @@ body {
 #HomeLink {
 	margin-top: 12px;
 	font-size: 200%;
+	margin-left: 30px;
 }
 #navbar {
 	margin-top: 15px;
@@ -49,15 +51,21 @@ body {
 .musicButton {
 	width: 20px;
 	height: 20px;
-	margin-left: 6px;
-	margin-right: 6px;
-	margin-top: -20px;
+	margin-top: 27px;
 }
-audio {
-    background-color: transparent !important;
+.prev {
+	position: fixed !important;
+	margin-left: 6px !important;
 }
-#playerControls {
-	margin-top: 8px;
+#playPause {
+	position: fixed !important;
+	margin-left: 210px !important;
+	width: 0px;
+	height: 0px;
+}
+.next {
+	position: fixed !important;
+	margin-left: 86px !important;
 }
 #expandNavbar {
 	margin-top: 22px !important;
@@ -88,11 +96,6 @@ audio {
 	background-image: url("3.jpg");
 }
 #portrait {
-}
-
-
-#Photos {
-	background-image: url("99.jpg");
 }
 
 
