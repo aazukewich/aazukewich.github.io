@@ -25,6 +25,12 @@
 
       contact form
     !-->
+    <div id = "musicControls">
+      <img src="prev.png" onclick="prevSong()" class="prev musicButton"/>
+      <img src="play.png" onclick="play()" class="playSong musicButton"/>
+      <img src="pause.png" onclick="pause()" class="pauseSong musicButton"/>
+      <img src="next.png" onclick="nextSong()" class="next musicButton"/>
+    </div>
     <nav id="navbarFull" class="navbar navbar-default navbar-fixed-top shadow" role="navigation">
       <div class="container">
         <div class="navbar-header" id="navbarMain">
@@ -35,12 +41,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand myNavLinks" id="HomeLink"><strong>A</strong><small>ARON</small><strong>Z</strong></a>
-          <img src="prev.png" onclick="prevSong()" class="prev musicButton"/>
-          <div id="playPause">
-            <img src="play.png" onclick="play()" class="playSong musicButton"/>
-            <img src="pause.png" onclick="pause()" class="pauseSong musicButton"/>
-          </div>
-          <img src="next.png" onclick="nextSong()" class="next musicButton"/>
+          
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -52,6 +53,10 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+    
+
+    </div>
 
     <audio id="player">
       <source src="Away From Home.mp3" type="audio/mpeg">
