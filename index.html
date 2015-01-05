@@ -8,7 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mysite.css" rel="stylesheet">
   </head>
-  <body>
+  <body onresize="resizeScrolling()" onload="resizeScrolling()">
     <!--
       hiding navbar
 
@@ -69,7 +69,7 @@
     </div>
 
     <div id = "About" class = "container mySections">
-      <div class = "inner" style="width: 45%; margin-left: 45%">
+      <div id = "AboutInner" class = "inner" style="width: 45%; margin-left: 45%">
         <h1 class = "sectionHeader">ABOUT</h1>
         <hr class = "sectionBar"/>
           <p>Since childhood Aaron Z has had an undeniable passion for discovery, creativity, and sound. Manifest as a love of composing, his jazz-rooted compositions incorporate a myriad of sounds, combining elements of World Music, Classical, Rock, and Pop, in coherent, fascinating and beautiful ways. Performing these compositions, Aaron delivers the ultimate expression of his passion, emotion and joy.</p>
@@ -84,7 +84,7 @@
 
     
     <div id = "Shows" class = "container mySections">
-      <div class = "inner" style="width: 50%; margin-left: 15%">
+      <div id = "ShowsInner" class = "inner" style="width: 50%; margin-left: 15%">
         <h1 class = "sectionHeader">SHOWS</h1>
         <hr class = "sectionBar"/>
         
@@ -94,7 +94,7 @@
     </div>
 
     <div id = "Music" class = "container mySections">
-      <div class = "inner" style="width: 40%; margin-left: 15%">
+      <div id = "MusicInner" class = "inner" style="width: 40%; margin-left: 15%">
         <h1 class = "sectionHeader">MUSIC</h1>
         <hr class = "sectionBar"/>
         <p class = "songList" onclick="playSong(0)">Away From Home</p>
@@ -109,7 +109,7 @@
     </div>
 
     <div id = "Contact" class = "container mySections">
-      <div class = "inner" style="width: 50%; margin-left: 15%">
+      <div id = "ContactInner" class = "inner" style="width: 50%; margin-left: 15%">
         <h1 class = "sectionHeader">CONTACT</h1>
         <hr class = "sectionBar"/>
         <form name="sentMessage" id="contactForm"  novalidate>

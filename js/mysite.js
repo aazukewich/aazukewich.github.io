@@ -1,7 +1,3 @@
-
-
-
-
 // Playlist Stuff
 /*$('.active1Describe').click(function()
 {
@@ -55,6 +51,43 @@ $(document).ready(function()
 {
 	$('.pauseSong').hide();
 });
+$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(e)
+{
+	resizeScrolling();
+});
+var desktop = true;
+var oldDesktop = true;
+function resizeScrolling()
+{
+	desktop = ($(window).width() >= 992)
+	if(oldDesktop!=desktop)
+	{
+		if(!desktop)
+	    {
+			document.getElementById("AboutInner").style.marginLeft =  "15%";
+	    	document.getElementById("ShowsInner").style.marginLeft =  "15%";
+	    	document.getElementById("MusicInner").style.marginLeft =  "15%";
+	    	document.getElementById("ContactInner").style.marginLeft =  "15%";
+
+	    	document.getElementById("AboutInner").style.width = "75%";
+	    	document.getElementById("ShowsInner").style.width = "75%";
+	    	document.getElementById("MusicInner").style.width = "75%";
+	    	document.getElementById("ContactInner").style.width = "75%";
+	    } else
+	    {
+	    	document.getElementById("AboutInner").style.marginLeft =  "45%";
+	    	document.getElementById("ShowsInner").style.marginLeft =  "15%";
+	    	document.getElementById("MusicInner").style.marginLeft =  "15%";
+	    	document.getElementById("ContactInner").style.marginLeft =  "15%";
+
+	    	document.getElementById("AboutInner").style.width = "45%";
+	    	document.getElementById("ShowsInner").style.width = "50%";
+	    	document.getElementById("MusicInner").style.width = "40%";
+	    	document.getElementById("ContactInner").style.width = "50%";
+	    }
+	}
+	oldDesktop = desktop;
+}
 
 // scrolling with navbar
 $('#HomeLink').click(function()
