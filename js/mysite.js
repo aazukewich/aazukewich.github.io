@@ -29,7 +29,7 @@ function pause()
     audio.pause();
 }
 function playSong(index){
-	audio.src = songs[index] + '.mp3';
+	audio.src = 'songs/' + songs[index] + '.mp3';
     play();
 }
 //to use in other

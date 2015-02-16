@@ -9,28 +9,14 @@
     <link href="css/mysite.css" rel="stylesheet">
   </head>
   <body onresize="resizeScrolling()" onload="resizeScrolling()">
-    <!--
-      hiding navbar
-
-      links
-      -bio
-      -music player
-      -(video)
-      -pictures
-      -dates
-      -contact
-
-      player in nabber, playlist elsewhere
-      similar to josh
-
-      contact form
-    !-->
     <div id = "musicControls">
-      <img src="prev.png" onclick="prevSong()" class="prev musicButton"/>
-      <img src="play.png" onclick="play()" class="playSong musicButton"/>
-      <img src="pause.png" onclick="pause()" class="pauseSong musicButton"/>
-      <img src="next.png" onclick="nextSong()" class="next musicButton"/>
+      <img src="player/prev.png" onclick="prevSong()" class="prev musicButton"/>
+      <img src="player/play.png" onclick="play()" class="playSong musicButton"/>
+      <img src="player/pause.png" onclick="pause()" class="pauseSong musicButton"/>
+      <img src="player/next.png" onclick="nextSong()" class="next musicButton"/>
     </div>
+
+    <!--
     <nav id="navbarFull" class="navbar navbar-default navbar-fixed-top shadow" role="navigation">
       <div class="container">
         <div class="navbar-header" id="navbarMain">
@@ -50,13 +36,26 @@
               <li><a class "myNavLinks" id = "MusicLink">MUSIC</a></li>
               <li><a class "myNavLinks" id = "ContactLink">CONTACT</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
+    -->
 
-    
+    <div><img src="css/piano.jpg" id = "testKey"/></div>
 
+    <!--
+    <div id="sideKeys">
+      <div><img src="css/whitekey.jpg" id = "AboutLink" class="keys"/></div>
+      <div><img src="css/whitekey.jpg" id = "ShowsLink" class="keys"/></div>
+      <div><img src="css/whitekey.jpg" id = "MusicLink" class="keys"/></div>
+      <div><img src="css/whitekey.jpg" id = "ContactLink" class="keys"/></div>
     </div>
+    <div id="sideKeysBlack">
+      <div><img src="css/blackkey.jpg" id = "AboutLink" class="blackkeys"/></div>
+      <div><img src="css/blackkey.jpg" id = "AboutLink" class="blackkeys"/></div>
+      <div><img src="css/blackkey.jpg" id = "AboutLink" class="blackkeys"/></div>
+    </div>
+    -->
 
     <audio id="player">
       <source src="Away From Home.mp3" type="audio/mpeg">
@@ -112,11 +111,7 @@
       <div id = "ContactInner" class = "inner" style="width: 50%; margin-left: 15%">
         <h1 class = "sectionHeader">CONTACT</h1>
         <hr class = "sectionBar"/>
-
-
-
-
-        <form method="POST" action="http://formspree.io/jzukewic@uwaterloo.ca" id="contactForm">
+          <form method="POST" action="http://formspree.io/jzukewic@uwaterloo.ca" id="contactForm">
             <div class="form-group">
               <input type="email" class="form-control" name="_replyto" placeholder="Your email"/>
             </div>
@@ -128,13 +123,6 @@
             </div>
             <button type="submit" class="btn pull-right" style="color: #ffffff">Send</button>
           </form>
-
-
-
-
-
-
-
       </div>
     </div>
 
@@ -142,8 +130,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact.js"></script>
     <script src="js/mysite.js"></script>
   </body>
 </html>
