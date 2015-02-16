@@ -57,9 +57,34 @@ $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFu
 });
 var desktop = true;
 var oldDesktop = true;
+
+var offset = 30;
+var space = 15;
+var radius = 10;
+var ctx;
 function resizeScrolling()
 {
-	desktop = ($(window).width() >= 992)
+	screenWidth = $(window).width();
+	screenHeight = $(window).height();
+
+	var c = document.getElementById("myCanvas");
+	ctx = c.getContext("2d");
+	ctx.strokeStyle="#FFFFFF";
+	ctx.fillStyle = "#FFFFFF";
+
+	for (var i = 0; i < 5; i++)
+	{
+		drawLine(offset+i*2*space, 0, offset+i*2*space, 1000)
+	};
+
+	drawNote(2, 250)
+	drawNote(3, 350)
+	drawNote(5, 450)
+	drawNote(1, 550)
+	drawNote(2, 650)
+
+
+	desktop = (screenWidth >= 992)
 	if(oldDesktop!=desktop)
 	{
 		if(!desktop)
@@ -89,6 +114,27 @@ function resizeScrolling()
 	oldDesktop = desktop;
 }
 
+function drawNote(pos, y)
+{
+	var x = offset+pos*space;
+	ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+    ctx.fill();
+    if(x>100)
+    {
+    	drawLine(x,y-radius, x-100,y-radius)
+    } else
+    {
+    	drawLine(x,y+radius, x+100,y+radius)
+    }
+}
+function drawLine(x1, y1, x2, y2)
+{
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.stroke();
+}
+
 // scrolling with navbar
 $('#HomeLink').click(function()
 {
@@ -102,13 +148,6 @@ $('#AboutLink').click(function()
 	$('html, body').animate(
 	{
 		scrollTop: $('#About').offset().top
-	}, 'slow');
-});
-$('#MusicLink').click(function()
-{
-	$('html, body').animate(
-	{
-		scrollTop: $('#Music').offset().top
 	}, 'slow');
 });
 $('#ShowsLink').click(function()
