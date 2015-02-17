@@ -47,6 +47,11 @@ function nextSong(){
 $(document).ready(function()
 {
 	$('.pauseSong').hide();
+	for(var i = 0; i < 11; i++)
+	{
+		images[i] = new Image();
+		images[i].src = '../css/notes/' + imageNames[i] + '.png';
+	}
 });
 $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(e)
 {
@@ -55,15 +60,12 @@ $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFu
 var desktop = true;
 var oldDesktop = true;
 
-var notes = [[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8], 
-			[6, 1/8], [7, 1/8], [8, 1/8], [5, 1/8], 
-			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
-			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
-			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
-			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
-			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
-			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],];
-
+var notes = [[2, 0], [3, 1], [4, 2], [5, 3], 
+			[6, 8], [7, 9], [8, 10], [5, 2],
+			[2, 0], [3, 1], [4, 2], [5, 3], 
+			[6, 5], [7, 2], [8, 6], [5, 2],
+			[2, 0], [3, 1], [4, 2], [5, 3], 
+			[6, 5], [7, 2], [8, 6], [5, 2]];
 var offset = 30;
 var space = 15;
 var spacing = 90;
@@ -135,20 +137,31 @@ function noteX(note)
 {
 	return offset+note*space;;
 }
-function drawNote(duration, x, y)
+var images = new Array();
+var imageNames = [	'bass', 'treble', 'flat', 'sharp', 'eigthRest', 'whole', 'quarterRest', 
+					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
+var imageDims = [	[0, -20], [-20, -20], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], 
+					[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
+function drawNote(type, x, y)
 {
 	ctx.beginPath();
     if(x>offset + space*5)
     {
     	ctx.arc(x, y+radius, radius, 0, 2 * Math.PI, false);
     	ctx.fill();
-    	drawLine(x,y, x-100,y)
+    	drawLine(x,y, x-100,y);
     } else
     {
     	ctx.arc(x, y-radius, radius, 0, 2 * Math.PI, false);
     	ctx.fill();
-    	drawLine(x,y, x+100,y)
+    	drawLine(x,y, x+100,y);
     }
+    if(type > 6 && x>offset + space*5) type += 4;
+    x += imageDims[type][0];
+    y += imageDims[type][1];
+    images[type] = new Image();
+	images[type].src = 'css/notes/'+imageNames[type]+'.png';
+    ctx.drawImage(images[type],x,y);
 }
 function drawLine(x1, y1, x2, y2)
 {
