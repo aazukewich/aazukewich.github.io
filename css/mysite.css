@@ -7,7 +7,8 @@ body {
 
 
 .mySections {
-	width: 100%;
+	width: 88%;
+	margin-left: 12%;
 	min-height:100vh !important; /* browser fill */
     height:100vh !important;
 	background-repeat:no-repeat;
@@ -29,12 +30,16 @@ body {
 
 
 
-#navbarFull {
-	background-color : rgba(0,0,0,0.8) !important;
-	border-color: transparent;
+
+
+#sidesection {
+	position: fixed;
+	width: 100%;
 }
-#navbarMain {
-	height: 80px !important;
+#myCanvas {
+	position: fixed;
+	width: 80vh;
+	height: 100vh;
 }
 #HomeLink {
 	margin-top: 12px;
@@ -43,19 +48,23 @@ body {
 	color: #bbbbbb !important;
 	margin-left: 0 !important;
 }
-#navbarMain {
-	margin-left: 0;
-}
-#navbar {
-	margin-top: 15px;
-	font-size: 140%;
-}
-.myNavLinks, li {
+.myNavLinks {
+	position: absolute;
 	cursor: pointer;
-	font-size: 80%;
+	font-size: 95%;
 }
+.songList {
+	position: absolute;
+	cursor: pointer;
+	font-size: 90%;
+	display: inline;
+}
+
+
 #musicControls {
-	margin-left: 12%
+	position: fixed !important;
+	margin-left: 2.54vh;
+	margin-top: 46vh;
 }
 .musicButton {
 	width: 20px;
@@ -63,21 +72,9 @@ body {
 	margin-top: 27px;
 	z-index:1040;
 }
-.prev {
-	position: fixed !important;
-	margin-left: 150px !important;
-}
-.playSong, .pauseSong {
-	position: fixed !important;
-	margin-left: 180px !important;
-}
-.next {
-	position: fixed !important;
-	margin-left: 210px !important;
-}
-#expandNavbar {
-	margin-top: 22px !important;
-}
+
+
+
 
 
 
@@ -103,34 +100,9 @@ body {
 #About {
 	background-image: url("3.jpg");
 }
-#portrait {
-}
-
-
-
-
 #Shows {
 	background-image: url("2.jpg");
 }
-
-
-
-
-
-#Music {
-	background-image: url("5.jpg");
-}
-#musicModal {
-	color: #000;
-}
-.songList {
-	cursor: pointer;
-}
-
-
-
 #Contact {
 	background-image: url("4.jpg");
 }
-
-

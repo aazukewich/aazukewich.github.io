@@ -9,57 +9,32 @@
     <link href="css/mysite.css" rel="stylesheet">
   </head>
   <body onresize="resizeScrolling()" onload="resizeScrolling()">
-    <!--
-      hiding navbar
-
-      links
-      -bio
-      -music player
-      -(video)
-      -pictures
-      -dates
-      -contact
-
-      player in nabber, playlist elsewhere
-      similar to josh
-
-      contact form
-    !-->
+    <canvas id="myCanvas" width=1000 height=1000></canvas>
     <div id = "musicControls">
-      <img src="prev.png" onclick="prevSong()" class="prev musicButton"/>
-      <img src="play.png" onclick="play()" class="playSong musicButton"/>
-      <img src="pause.png" onclick="pause()" class="pauseSong musicButton"/>
-      <img src="next.png" onclick="nextSong()" class="next musicButton"/>
+      <img src="player/prev.png" onclick="prevSong()" class="prev musicButton"/>
+      <img src="player/play.png" onclick="play()" class="playSong musicButton"/>
+      <img src="player/pause.png" onclick="pause()" class="pauseSong musicButton"/>
+      <img src="player/next.png" onclick="nextSong()" class="next musicButton"/>
     </div>
-    <nav id="navbarFull" class="navbar navbar-default navbar-fixed-top shadow" role="navigation">
-      <div class="container">
-        <div class="navbar-header" id="navbarMain">
-          <button id = "expandNavbar" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand myNavLinks" id="HomeLink"><strong>A</strong><small>ARON</small><strong>Z</strong></a>
-          
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-              <li><a class "myNavLinks" id = "AboutLink">ABOUT</a></li>
-              <li><a class "myNavLinks" id = "ShowsLink">SHOWS</a></li>
-              <li><a class "myNavLinks" id = "MusicLink">MUSIC</a></li>
-              <li><a class "myNavLinks" id = "ContactLink">CONTACT</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
 
     
+    <div id = "sidesection">
+      <p class = "myNavLinks" id = "Link0" onclick="scrollTo('About')">About</p>
+      <p class = "myNavLinks" id = "Link1" onclick="scrollTo('Shows')">Shows</p>
+      <p class = "myNavLinks" id = "Link2" onclick="scrollTo('Contact')">Contact</p>
 
-    </div>
+      <p style="display:inline" class = "songList" id = "Link4" onclick="playSong(0)">Away From Home</p>
+      <p class = "songList" id = "Link5" onclick="playSong(1)">Beatrice</p>
+      <p class = "songList" id = "Link6" onclick="playSong(2)">Down By The River</p>
+      <p class = "songList" id = "Link7" onclick="playSong(3)">Emily</p>
+      <p class = "songList" id = "Link8" onclick="playSong(4)">Fly Me To The Moon</p>
+      <p class = "songList" id = "Link9" onclick="playSong(5)">Original</p>
+      <p class = "songList" id = "Link10" onclick="playSong(6)">Stella By Starlight</p>
+      <p class = "songList" id = "Link11" onclick="playSong(7)">Tire Swing Era</p>
+    </div> 
 
     <audio id="player">
-      <source src="Away From Home.mp3" type="audio/mpeg">
+      <source src="songs/Away From Home.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
 
@@ -93,30 +68,11 @@
       </div>
     </div>
 
-    <div id = "Music" class = "container mySections">
-      <div id = "MusicInner" class = "inner" style="width: 40%; margin-left: 15%">
-        <h1 class = "sectionHeader">MUSIC</h1>
-        <hr class = "sectionBar"/>
-        <p class = "songList" onclick="playSong(0)">Away From Home</p>
-        <p class = "songList" onclick="playSong(1)">Beatrice</p>
-        <p class = "songList" onclick="playSong(2)">Down by the River</p>
-        <p class = "songList" onclick="playSong(3)">Emily</p>
-        <p class = "songList" onclick="playSong(4)">Fly Me To The Moon</p>
-        <p class = "songList" onclick="playSong(5)">Original</p>
-        <p class = "songList" onclick="playSong(6)">Stella By Starlight</p>
-        <p class = "songList" onclick="playSong(7)">Tire Swing Era</p>
-      </div>
-    </div>
-
     <div id = "Contact" class = "container mySections">
       <div id = "ContactInner" class = "inner" style="width: 50%; margin-left: 15%">
         <h1 class = "sectionHeader">CONTACT</h1>
         <hr class = "sectionBar"/>
-
-
-
-
-        <form method="POST" action="http://formspree.io/jzukewic@uwaterloo.ca" id="contactForm">
+          <form method="POST" action="http://formspree.io/jzukewic@uwaterloo.ca" id="contactForm">
             <div class="form-group">
               <input type="email" class="form-control" name="_replyto" placeholder="Your email"/>
             </div>
@@ -126,15 +82,8 @@
             <div class="form-group">
               <textarea rows="10" cols="100" class="form-control" placeholder="Message" name="message" style="resize:none"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary pull-right">Send</button>
+            <button type="submit" class="btn pull-right" style="color: #ffffff">Send</button>
           </form>
-
-
-
-
-
-
-
       </div>
     </div>
 
@@ -142,8 +91,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact.js"></script>
     <script src="js/mysite.js"></script>
   </body>
 </html>
