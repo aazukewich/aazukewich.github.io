@@ -52,6 +52,7 @@ $(document).ready(function()
 		images[i] = new Image();
 		images[i].src = '../css/notes/' + imageNames[i] + '.png';
 	}
+	redrawSideBar();
 });
 $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(e)
 {
@@ -60,13 +61,18 @@ $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFu
 var desktop = true;
 var oldDesktop = true;
 /*
-var imageNames = [	'bass', 'treble', 'flat', 'sharp', 'eigthRest', 'whole', 'quarterRest', 
-					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
+var imageNames = [	'bass'0, 'treble'1, 'eigthRest'2, 'quarterRest'3, 'flat'4, 'sharp'5, 'whole'6,
+					'sixteenth'7, 'eigth'8, 'quarter'9, 'half'10, 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
 */
-var notes = [	[3, 0], [3, 1], [3, 2], [3, 3], 
-				[3, 4], [3, 5], [3, 6], [3, 7],
-				[3, 8], [3, 9], [3, 10], [6, 7],
-				[6, 8], [6, 9], [6, 10]];
+
+// 
+var notes = [	[3, 0], [-2, 9], [2, 8], [0, 2], [4, 8],
+				[3, 8], [-1, 9], [1, 8], [0, 2], [2, 8],
+				[-3, 8], [-2, 9], [2, 8], [0, 2], [4, 8],
+				[3, 8], [-1, 9], [1, 8], [2, 8],
+				[-3, 8], /**/ [8, 7], [8, 8], [8, 9],
+				[8, 10], [-2, 9], [2, 10], [4, 7],
+				[-3, 8], [-2, 9], [2, 10], [4, 7]];
 var offset = 30;
 var space = 15;
 var spacing = 90;
@@ -79,9 +85,9 @@ function redrawSideBar()
 
     	for(var i = 0; i < 12; i++)
 		{
-			$("#Link" + i.toString()).fadeIn();
+			$("#Link" + i.toString()).fadeIn(200);
 		}
-    }, 200));
+    }, 150));
 
 	var scrolled = $(window).scrollTop();
 	var c = document.getElementById("myCanvas");
@@ -91,51 +97,54 @@ function redrawSideBar()
 	ctx.fillStyle = "#FFFFFF";
 	for (var i = 0; i < 5; i++)
 	{
-		drawLine(offset+i*2*space, 0, offset+i*2*space, 1000)
+		drawLine(offset+(i+1)*2*space, 0, offset+(i+1)*2*space, 1000)
 	};
 	ctx.strokeStyle="#FFFFFF";
 	var startOffset = scrolled/2;
 	var count = 0;
 	for(var i = 0; i < 12; i++)
 	{
-		$("#Link" + i.toString()).fadeOut();
+		$("#Link" + i.toString()).fadeOut(200);
 	}
 	var percentH = $(window).height()/1000;
 	var percentW = $(window).height()/1250;
 	for(var i = 0; i < notes.length; i++)
 	{
 		var y = noteY(i, startOffset)
-		var x = noteX(notes[i][0])
+		type = notes[i][1];
+		var x = noteX(type, notes[i][0])
+		if(x>offset + space*5)
+	    {
+	    	type += 4;
+	    }
 		if(count==3)
 		{
+			ctx.globalAlpha = 0.2;
 			count++;
+			drawNote(type, x, y);
+			ctx.globalAlpha = 1;
 		} else
 		{
 			if(y>160 && count < 12)
 			{
 				var item = document.getElementById("Link" + count.toString());
 				item.style.marginTop = ((y-25)*percentH).toString()+"px";
-				if(x>offset + space*5)
-				{
-					item.style.marginLeft = ((x-95)*percentW).toString()+"px";
-				} else
-				{
-					item.style.marginLeft = ((x+18)*percentW).toString()+"px";
-				}
+				item.style.marginLeft = ((x+wordHor[type]+(2*space))*percentW).toString()+"px";
 				count++;
 			}
-			drawNote(notes[i][1], x, y);
+			drawNote(type, x, y);
 		}
 	}
 }
 function noteY(i, off)
 {
 	y = 10+i*spacing-off;
-	if(y < 2000) y = Math.sqrt(y) * 28;
+	if(y < 2000) y = Math.sqrt(y+300) * 42 - 650;
 	return y;
 }
-function noteX(note)
+function noteX(type, note)
 {
+	if(type < 7) return 0;
 	return offset+note*space;
 }
 var images = new Array();
@@ -144,28 +153,14 @@ var imageNames = [	'bass', 'treble', 'eigthRest', 'quarterRest', 'flat', 'sharp'
 var imageDims = [	[55, -30], [28, -20], [58, -22], [60, -22], 
 					[55, 0], [40, 0], [63, -25],
 					[-11, -25], [-12, -25], [-11, -25], [-11, -25], [-85, -25], [-85, -25], [-85, 0], [-85, 0]];
+var wordHor = [0, 0, 40, 40, 0, 0, 20, 
+				20, 20, 20, 20, -15, -48, -80, -80];
 function drawNote(type, x, y)
 {
-	/*ctx.beginPath();
-    if(x>offset + space*5)
-    {
-    	ctx.arc(x, y+radius, radius, 0, 2 * Math.PI, false);
-    	ctx.fill();
-    	drawLine(x,y, x-100,y);
-    } else
-    {
-    	ctx.arc(x, y-radius, radius, 0, 2 * Math.PI, false);
-    	ctx.fill();
-    	drawLine(x,y, x+100,y);
-    }*/
-    if(type < 7)
-    {
-    	x = 0;
-    } else if(x>offset + space*5)
-    {
-    	type += 4;
-    }
-    x += imageDims[type][0];
+	/*
+	ctx.beginPath();
+	drawLine(x,y, x-100,y); */
+    x += imageDims[type][0] + space*2;
     y += imageDims[type][1];
     images[type] = new Image();
 	images[type].src = 'css/notes/'+imageNames[type]+'.png';

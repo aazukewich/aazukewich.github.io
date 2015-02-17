@@ -56,15 +56,15 @@ body {
 .songList {
 	position: absolute;
 	cursor: pointer;
-	font-size: 90%;
+	font-size: 75%;
 	display: inline;
 }
 
 
 #musicControls {
 	position: fixed !important;
-	margin-left: 2.54vh;
-	margin-top: 46vh;
+	margin-left: 4.94vh;
+	margin-top: 40vh;
 }
 .musicButton {
 	width: 20px;
