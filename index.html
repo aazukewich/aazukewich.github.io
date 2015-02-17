@@ -11,10 +11,10 @@
   <body onresize="resizeScrolling()" onload="resizeScrolling()">
     <canvas id="myCanvas" width=1000 height=1000></canvas>
     <div id = "musicControls">
-      <img id = "prev" src="player/prev.png" onclick="prevSong()" class="prev musicButton"/>
-      <img id = "play" src="player/play.png" onclick="play()" class="playSong musicButton"/>
-      <img id = "pause" src="player/pause.png" onclick="pause()" class="pauseSong musicButton"/>
-      <img id = "next" src="player/next.png" onclick="nextSong()" class="next musicButton"/>
+      <img src="player/prev.png" onclick="prevSong()" class="prev musicButton"/>
+      <img src="player/play.png" onclick="play()" class="playSong musicButton"/>
+      <img src="player/pause.png" onclick="pause()" class="pauseSong musicButton"/>
+      <img src="player/next.png" onclick="nextSong()" class="next musicButton"/>
     </div>
 
     
@@ -23,7 +23,7 @@
       <p class = "myNavLinks" id = "Link1" onclick="scrollTo('Shows')">Shows</p>
       <p class = "myNavLinks" id = "Link2" onclick="scrollTo('Contact')">Contact</p>
 
-      <p class = "songList" id = "Link4" onclick="playSong(0)">Away From Home</p>
+      <p style="display:inline" class = "songList" id = "Link4" onclick="playSong(0)">Away From Home</p>
       <p class = "songList" id = "Link5" onclick="playSong(1)">Beatrice</p>
       <p class = "songList" id = "Link6" onclick="playSong(2)">Down By The River</p>
       <p class = "songList" id = "Link7" onclick="playSong(3)">Emily</p>

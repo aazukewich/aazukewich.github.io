@@ -34,6 +34,7 @@ body {
 
 #sidesection {
 	position: fixed;
+	width: 100%;
 }
 #myCanvas {
 	position: fixed;
@@ -56,12 +57,14 @@ body {
 	position: absolute;
 	cursor: pointer;
 	font-size: 90%;
+	display: inline;
 }
 
 
 #musicControls {
 	position: fixed !important;
 	margin-left: 2.54vh;
+	margin-top: 46vh;
 }
 .musicButton {
 	width: 20px;

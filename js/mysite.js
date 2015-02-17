@@ -105,7 +105,6 @@ function redrawSideBar()
 		var x = noteX(notes[i][0])
 		if(count==3)
 		{
-			document.getElementById("musicControls").style.marginTop = ((y-65)*percentH).toString()+"px";
 			count++;
 		} else
 		{
@@ -115,7 +114,7 @@ function redrawSideBar()
 				item.style.marginTop = ((y-25)*percentH).toString()+"px";
 				if(x>offset + space*5)
 				{
-					item.style.marginLeft = ((x-90)*percentW).toString()+"px";
+					item.style.marginLeft = ((x-95)*percentW).toString()+"px";
 				} else
 				{
 					item.style.marginLeft = ((x+18)*percentW).toString()+"px";
