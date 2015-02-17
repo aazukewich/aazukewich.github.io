@@ -59,13 +59,14 @@ $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFu
 });
 var desktop = true;
 var oldDesktop = true;
-
-var notes = [[2, 0], [3, 1], [4, 2], [5, 3], 
-			[6, 8], [7, 9], [8, 10], [5, 2],
-			[2, 0], [3, 1], [4, 2], [5, 3], 
-			[6, 5], [7, 2], [8, 6], [5, 2],
-			[2, 0], [3, 1], [4, 2], [5, 3], 
-			[6, 5], [7, 2], [8, 6], [5, 2]];
+/*
+var imageNames = [	'bass', 'treble', 'flat', 'sharp', 'eigthRest', 'whole', 'quarterRest', 
+					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
+*/
+var notes = [	[3, 0], [3, 1], [3, 2], [3, 3], 
+				[3, 4], [3, 5], [3, 6], [3, 7],
+				[3, 8], [3, 9], [3, 10], [6, 7],
+				[6, 8], [6, 9], [6, 10]];
 var offset = 30;
 var space = 15;
 var spacing = 90;
@@ -129,22 +130,23 @@ function redrawSideBar()
 }
 function noteY(i, off)
 {
-	y = 50+i*spacing-off;
+	y = 10+i*spacing-off;
 	if(y < 2000) y = Math.sqrt(y) * 28;
 	return y;
 }
 function noteX(note)
 {
-	return offset+note*space;;
+	return offset+note*space;
 }
 var images = new Array();
-var imageNames = [	'bass', 'treble', 'flat', 'sharp', 'eigthRest', 'whole', 'quarterRest', 
+var imageNames = [	'bass', 'treble', 'eigthRest', 'quarterRest', 'flat', 'sharp', 'whole',
 					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
-var imageDims = [	[0, -20], [-20, -20], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], 
-					[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
+var imageDims = [	[55, -30], [28, -20], [58, -22], [60, -22], 
+					[55, 0], [40, 0], [63, -25],
+					[-11, -25], [-12, -25], [-11, -25], [-11, -25], [-85, -25], [-85, -25], [-85, 0], [-85, 0]];
 function drawNote(type, x, y)
 {
-	ctx.beginPath();
+	/*ctx.beginPath();
     if(x>offset + space*5)
     {
     	ctx.arc(x, y+radius, radius, 0, 2 * Math.PI, false);
@@ -155,8 +157,14 @@ function drawNote(type, x, y)
     	ctx.arc(x, y-radius, radius, 0, 2 * Math.PI, false);
     	ctx.fill();
     	drawLine(x,y, x+100,y);
+    }*/
+    if(type < 7)
+    {
+    	x = 0;
+    } else if(x>offset + space*5)
+    {
+    	type += 4;
     }
-    if(type > 6 && x>offset + space*5) type += 4;
     x += imageDims[type][0];
     y += imageDims[type][1];
     images[type] = new Image();
