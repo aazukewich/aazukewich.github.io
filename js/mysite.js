@@ -1,11 +1,8 @@
-// Playlist Stuff
-/*$('.active1Describe').click(function()
+$(window).bind('scroll', function(e)
 {
-	$('html, body').animate(
-	{
-		scrollTop: $('#Home').offset().top
-	}, 'slow');
-});*/
+	redrawSideBar();
+});
+
 var currentSong = 0;
 var songs = ['Away From Home', 'Beatrice', 'Down By The River', 'Emily', 'Fly Me To The Moon', 'Original', 'Stella By Starlight', 'Tire Swing Era'];
 var numOfSongs = 8;
@@ -58,74 +55,100 @@ $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFu
 var desktop = true;
 var oldDesktop = true;
 
+var notes = [[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8], 
+			[6, 1/8], [7, 1/8], [8, 1/8], [5, 1/8], 
+			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
+			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
+			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
+			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
+			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],
+			[2, 1/8], [3, 1/8], [4, 1/8], [5, 1/8],];
+
 var offset = 30;
 var space = 15;
+var spacing = 90;
 var radius = 10;
 var ctx;
-function resizeScrolling()
+function redrawSideBar()
 {
-	screenWidth = $(window).width();
-	screenHeight = $(window).height();
+	clearTimeout($.data(this, 'scrollTimer'));
+    $.data(this, 'scrollTimer', setTimeout(function() {
 
+    	for(var i = 0; i < 12; i++)
+		{
+			$("#Link" + i.toString()).fadeIn();
+		}
+    }, 200));
+
+	var scrolled = $(window).scrollTop();
 	var c = document.getElementById("myCanvas");
 	ctx = c.getContext("2d");
-	ctx.strokeStyle="#FFFFFF";
+	ctx.clearRect (0 ,0 , 1000, 1000);
+	ctx.strokeStyle="#444444";
 	ctx.fillStyle = "#FFFFFF";
-
 	for (var i = 0; i < 5; i++)
 	{
 		drawLine(offset+i*2*space, 0, offset+i*2*space, 1000)
 	};
-
-	drawNote(2, 250)
-	drawNote(3, 350)
-	drawNote(5, 450)
-	drawNote(1, 550)
-	drawNote(2, 650)
-
-
-	desktop = (screenWidth >= 992)
-	if(oldDesktop!=desktop)
+	ctx.strokeStyle="#FFFFFF";
+	var startOffset = scrolled/2;
+	var count = 0;
+	for(var i = 0; i < 12; i++)
 	{
-		if(!desktop)
-	    {
-			document.getElementById("AboutInner").style.marginLeft =  "15%";
-	    	document.getElementById("ShowsInner").style.marginLeft =  "15%";
-	    	document.getElementById("MusicInner").style.marginLeft =  "15%";
-	    	document.getElementById("ContactInner").style.marginLeft =  "15%";
-
-	    	document.getElementById("AboutInner").style.width = "75%";
-	    	document.getElementById("ShowsInner").style.width = "75%";
-	    	document.getElementById("MusicInner").style.width = "75%";
-	    	document.getElementById("ContactInner").style.width = "75%";
-	    } else
-	    {
-	    	document.getElementById("AboutInner").style.marginLeft =  "45%";
-	    	document.getElementById("ShowsInner").style.marginLeft =  "15%";
-	    	document.getElementById("MusicInner").style.marginLeft =  "15%";
-	    	document.getElementById("ContactInner").style.marginLeft =  "15%";
-
-	    	document.getElementById("AboutInner").style.width = "45%";
-	    	document.getElementById("ShowsInner").style.width = "50%";
-	    	document.getElementById("MusicInner").style.width = "40%";
-	    	document.getElementById("ContactInner").style.width = "50%";
-	    }
+		$("#Link" + i.toString()).fadeOut();
 	}
-	oldDesktop = desktop;
+	var percentH = $(window).height()/1000;
+	var percentW = $(window).height()/1250;
+	for(var i = 0; i < notes.length; i++)
+	{
+		var y = noteY(i, startOffset)
+		var x = noteX(notes[i][0])
+		if(count==3)
+		{
+			document.getElementById("musicControls").style.marginTop = ((y-65)*percentH).toString()+"px";
+			count++;
+		} else
+		{
+			if(y>160 && count < 12)
+			{
+				var item = document.getElementById("Link" + count.toString());
+				item.style.marginTop = ((y-25)*percentH).toString()+"px";
+				if(x>offset + space*5)
+				{
+					item.style.marginLeft = ((x-90)*percentW).toString()+"px";
+				} else
+				{
+					item.style.marginLeft = ((x+18)*percentW).toString()+"px";
+				}
+				count++;
+			}
+			drawNote(notes[i][1], x, y);
+		}
+	}
 }
-
-function drawNote(pos, y)
+function noteY(i, off)
 {
-	var x = offset+pos*space;
+	y = 50+i*spacing-off;
+	if(y < 2000) y = Math.sqrt(y) * 28;
+	return y;
+}
+function noteX(note)
+{
+	return offset+note*space;;
+}
+function drawNote(duration, x, y)
+{
 	ctx.beginPath();
-    ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
-    ctx.fill();
-    if(x>100)
+    if(x>offset + space*5)
     {
-    	drawLine(x,y-radius, x-100,y-radius)
+    	ctx.arc(x, y+radius, radius, 0, 2 * Math.PI, false);
+    	ctx.fill();
+    	drawLine(x,y, x-100,y)
     } else
     {
-    	drawLine(x,y+radius, x+100,y+radius)
+    	ctx.arc(x, y-radius, radius, 0, 2 * Math.PI, false);
+    	ctx.fill();
+    	drawLine(x,y, x+100,y)
     }
 }
 function drawLine(x1, y1, x2, y2)
@@ -135,32 +158,40 @@ function drawLine(x1, y1, x2, y2)
 	ctx.stroke();
 }
 
-// scrolling with navbar
-$('#HomeLink').click(function()
+function resizeScrolling()
+{
+	screenWidth = $(window).width();
+	screenHeight = $(window).height();
+	desktop = (screenWidth >= 992)
+	if(oldDesktop!=desktop)
+	{
+		if(!desktop)
+	    {
+			document.getElementById("AboutInner").style.marginLeft =  "15%";
+	    	document.getElementById("ShowsInner").style.marginLeft =  "15%";
+	    	document.getElementById("ContactInner").style.marginLeft =  "15%";
+
+	    	document.getElementById("AboutInner").style.width = "75%";
+	    	document.getElementById("ShowsInner").style.width = "75%";
+	    	document.getElementById("ContactInner").style.width = "75%";
+	    } else
+	    {
+	    	document.getElementById("AboutInner").style.marginLeft =  "45%";
+	    	document.getElementById("ShowsInner").style.marginLeft =  "15%";
+	    	document.getElementById("ContactInner").style.marginLeft =  "15%";
+
+	    	document.getElementById("AboutInner").style.width = "45%";
+	    	document.getElementById("ShowsInner").style.width = "50%";
+	    	document.getElementById("ContactInner").style.width = "50%";
+	    }
+	}
+	oldDesktop = desktop;
+	redrawSideBar();
+}
+function scrollTo(section)
 {
 	$('html, body').animate(
 	{
-		scrollTop: $('#Home').offset().top
+		scrollTop: $('#'+section).offset().top
 	}, 'slow');
-});
-$('#AboutLink').click(function()
-{
-	$('html, body').animate(
-	{
-		scrollTop: $('#About').offset().top
-	}, 'slow');
-});
-$('#ShowsLink').click(function()
-{
-	$('html, body').animate(
-	{
-		scrollTop: $('#Shows').offset().top
-	}, 'slow');
-});
-$('#ContactLink').click(function()
-{
-	$('html, body').animate(
-	{
-		scrollTop: $('#Contact').offset().top
-	}, 'slow');
-});
+}

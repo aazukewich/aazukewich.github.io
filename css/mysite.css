@@ -36,9 +36,9 @@ body {
 	position: fixed;
 }
 #myCanvas {
+	position: fixed;
 	width: 80vh;
 	height: 100vh;
-	position: fixed;
 }
 #HomeLink {
 	margin-top: 12px;
@@ -49,46 +49,25 @@ body {
 }
 .myNavLinks {
 	position: absolute;
-	cursor: pointer !important;
-	font-size: 80%;
-	color: #ffffff;
+	cursor: pointer;
+	font-size: 95%;
 }
-#AboutLink {
-	margin-top: 23vh;
-	margin-left: 7vh;
+.songList {
+	position: absolute;
+	cursor: pointer;
+	font-size: 90%;
 }
-#ShowsLink {
-	margin-top: 7vh;
-	margin-left: 8vh;
-}
-#ContactLink {
-	margin-top: 6vh;
-	margin-left: 3vh;
-}
-#MusicLink {
-	margin-top: 8vh;
-	margin-left: 6vh;
-}
+
+
 #musicControls {
-	margin-left: 12%
+	position: fixed !important;
+	margin-left: 2.54vh;
 }
 .musicButton {
 	width: 20px;
 	height: 20px;
 	margin-top: 27px;
 	z-index:1040;
-}
-.prev {
-	position: fixed !important;
-	margin-left: 150px !important;
-}
-.playSong, .pauseSong {
-	position: fixed !important;
-	margin-left: 180px !important;
-}
-.next {
-	position: fixed !important;
-	margin-left: 210px !important;
 }
 
 
@@ -118,34 +97,9 @@ body {
 #About {
 	background-image: url("3.jpg");
 }
-#portrait {
-}
-
-
-
-
 #Shows {
 	background-image: url("2.jpg");
 }
-
-
-
-
-
-#Music {
-	background-image: url("5.jpg");
-}
-#musicModal {
-	color: #000;
-}
-.songList {
-	cursor: pointer;
-}
-
-
-
 #Contact {
 	background-image: url("4.jpg");
 }
-
-

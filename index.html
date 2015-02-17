@@ -9,20 +9,29 @@
     <link href="css/mysite.css" rel="stylesheet">
   </head>
   <body onresize="resizeScrolling()" onload="resizeScrolling()">
+    <canvas id="myCanvas" width=1000 height=1000></canvas>
     <div id = "musicControls">
-      <img src="player/prev.png" onclick="prevSong()" class="prev musicButton"/>
-      <img src="player/play.png" onclick="play()" class="playSong musicButton"/>
-      <img src="player/pause.png" onclick="pause()" class="pauseSong musicButton"/>
-      <img src="player/next.png" onclick="nextSong()" class="next musicButton"/>
+      <img id = "prev" src="player/prev.png" onclick="prevSong()" class="prev musicButton"/>
+      <img id = "play" src="player/play.png" onclick="play()" class="playSong musicButton"/>
+      <img id = "pause" src="player/pause.png" onclick="pause()" class="pauseSong musicButton"/>
+      <img id = "next" src="player/next.png" onclick="nextSong()" class="next musicButton"/>
     </div>
 
-    <canvas id="myCanvas" width=1000 height=1000></canvas>
+    
     <div id = "sidesection">
-      <div class "myNavLinks" id = "AboutLink">About</div>
-      <div class "myNavLinks" id = "ShowsLink">Shows</div>
-      <div class "myNavLinks" id = "ContactLink">Contact</div>
-      <div class "myNavLinks" id = "MusicLink">Music</div>
-    </div>
+      <p class = "myNavLinks" id = "Link0" onclick="scrollTo('About')">About</p>
+      <p class = "myNavLinks" id = "Link1" onclick="scrollTo('Shows')">Shows</p>
+      <p class = "myNavLinks" id = "Link2" onclick="scrollTo('Contact')">Contact</p>
+
+      <p class = "songList" id = "Link4" onclick="playSong(0)">Away From Home</p>
+      <p class = "songList" id = "Link5" onclick="playSong(1)">Beatrice</p>
+      <p class = "songList" id = "Link6" onclick="playSong(2)">Down By The River</p>
+      <p class = "songList" id = "Link7" onclick="playSong(3)">Emily</p>
+      <p class = "songList" id = "Link8" onclick="playSong(4)">Fly Me To The Moon</p>
+      <p class = "songList" id = "Link9" onclick="playSong(5)">Original</p>
+      <p class = "songList" id = "Link10" onclick="playSong(6)">Stella By Starlight</p>
+      <p class = "songList" id = "Link11" onclick="playSong(7)">Tire Swing Era</p>
+    </div> 
 
     <audio id="player">
       <source src="songs/Away From Home.mp3" type="audio/mpeg">
@@ -56,21 +65,6 @@
         
         <p>I dont know how you want to lay out shows... youll probably want something <strong>Strong</strong> though :3</p>
 
-      </div>
-    </div>
-
-    <div id = "Music" class = "container mySections">
-      <div id = "MusicInner" class = "inner" style="width: 40%; margin-left: 15%">
-        <h1 class = "sectionHeader">MUSIC</h1>
-        <hr class = "sectionBar"/>
-        <p class = "songList" onclick="playSong(0)">Away From Home</p>
-        <p class = "songList" onclick="playSong(1)">Beatrice</p>
-        <p class = "songList" onclick="playSong(2)">Down By The River</p>
-        <p class = "songList" onclick="playSong(3)">Emily</p>
-        <p class = "songList" onclick="playSong(4)">Fly Me To The Moon</p>
-        <p class = "songList" onclick="playSong(5)">Original</p>
-        <p class = "songList" onclick="playSong(6)">Stella By Starlight</p>
-        <p class = "songList" onclick="playSong(7)">Tire Swing Era</p>
       </div>
     </div>
 
