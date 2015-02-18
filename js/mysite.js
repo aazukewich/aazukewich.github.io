@@ -26,8 +26,16 @@ function pause()
     audio.pause();
 }
 function playSong(index){
+	currentSong = index;
 	audio.src = 'songs/' + songs[index] + '.mp3';
     play();
+    $("#myCanvas").fadeOut(200);
+    setTimeout(function ()
+	{
+		notes = songNotes[currentSong];
+    	$("#myCanvas").fadeIn(200);
+    	redrawSideBar();
+	}, 200);
 }
 //to use in other
 function prevSong(){
@@ -50,7 +58,7 @@ $(document).ready(function()
 	for(var i = 0; i < 11; i++)
 	{
 		images[i] = new Image();
-		images[i].src = '../css/notes/' + imageNames[i] + '.png';
+		images[i].src = 'css/notes/' + imageNames[i] + '.png';
 	}
 	redrawSideBar();
 });
@@ -66,13 +74,43 @@ var imageNames = [	'bass'0, 'treble'1, 'eigthRest'2, 'quarterRest'3, 'flat'4, 's
 */
 
 // 
-var notes = [	[3, 0], [-2, 9], [2, 8], [0, 2], [4, 8],
-				[3, 8], [-1, 9], [1, 8], [0, 2], [2, 8],
-				[-3, 8], [-2, 9], [2, 8], [0, 2], [4, 8],
-				[3, 8], [-1, 9], [1, 8], [2, 8],
-				[-3, 8], /**/ [8, 7], [8, 8], [8, 9],
-				[8, 10], [-2, 9], [2, 10], [4, 7],
-				[-3, 8], [-2, 9], [2, 10], [4, 7]];
+var songNotes = [	[[0], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]],			
+					[[1], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]],			
+					[[0], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]],			
+					[[1], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]],		
+					[[0], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]],			
+					[[1], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]],			
+					[[0], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]],			
+					[[1], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]]	];
+
+var notes = [[1], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
+							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
+							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
+							[9, -1], [8, 1], [2], [8, 2], [8, -3]];
 var offset = 30;
 var space = 15;
 var spacing = 90;
@@ -110,9 +148,10 @@ function redrawSideBar()
 	var percentW = $(window).height()/1250;
 	for(var i = 0; i < notes.length; i++)
 	{
-		var y = noteY(i, startOffset)
-		type = notes[i][1];
-		var x = noteX(type, notes[i][0])
+		type = notes[i][0];
+		var y = noteY(i, startOffset);
+		var x = 0;
+		if(type > 3) x = noteX(type, notes[i][1])
 		if(x>offset + space*5)
 	    {
 	    	type += 4;
@@ -162,8 +201,6 @@ function drawNote(type, x, y)
 	drawLine(x,y, x-100,y); */
     x += imageDims[type][0] + space*2;
     y += imageDims[type][1];
-    images[type] = new Image();
-	images[type].src = 'css/notes/'+imageNames[type]+'.png';
     ctx.drawImage(images[type],x,y);
 }
 function drawLine(x1, y1, x2, y2)
