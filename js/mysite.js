@@ -83,7 +83,7 @@ var songNotes = [	[[1], 	[4, 4],
 							[8, 1], [9, 4], [9, 1], [9, 5], [8, 1],
 							[4, -1], [9, -1], [9, 1], [9, 5], [8, 1], [10, 2]],	
 
-					[[1], 	[4, 4],
+					[[1], 	[4, 4], [4, 6], [4, 2],
 
 							[9, -2], [9, 1], [9, 5], [8, 1], [9, 7],
 							[9, 1], [9, 5], [8, 1], [9, -1], [5, 1],[9, 1], 
@@ -162,15 +162,18 @@ function redrawSideBar()
 	}
 	var percentH = $(window).height()/1000;
 	var percentW = $(window).height()/1250;
-	var position = offset;
+	var position = -20;
+	var drawNext = 0;
 	for(var i = 0; i < notes.length; i++)
 	{
 		type = notes[i][0];
+		position += noteSizes[type]/2;
 		var y = noteY(position-startOffset);
-		position += noteSizes[type];
+		position += noteSizes[type]/2;
+		var noteLength = noteWeight[type];
 		var x = 0;
 		if(type > 3) x = noteX(type, notes[i][1])
-		if(x>offset + space*5)
+		if(type > 6 && x>offset + space*5)
 	    {
 	    	type += 4;
 	    }
@@ -184,10 +187,16 @@ function redrawSideBar()
 		{
 			if(y>160 && count < 12)
 			{
-				var item = document.getElementById("Link" + count.toString());
-				item.style.marginTop = ((y-25)*percentH).toString()+"px";
-				item.style.marginLeft = ((x+wordHor[type]+(2*space))*percentW).toString()+"px";
-				count++;
+				drawNext += noteLength;
+				if(drawNext >= 0.5)
+				{
+					var item = document.getElementById("Link" + count.toString());
+					item.style.marginTop = ((y-25)*percentH).toString()+"px";
+					item.style.marginLeft = ((x+wordHor[type]+(2*space))*percentW).toString()+"px";
+					drawNext -= 1;
+					if(noteLength == 1) drawNext = 0;
+					count++;
+				}
 			}
 			drawNote(type, x, y);
 		}
@@ -200,23 +209,23 @@ function noteY(y)
 }
 function noteX(type, note)
 {
-	if(type < 7) return 0;
 	return offset+note*space;
 }
 var images = new Array();
 var imageNames = [	'bass', 'treble', 'eigthRest', 'quarterRest', 'flat', 'sharp', 'whole',
 					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
-var noteSizes = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
+var noteSizes = [70, 70, 80, 150, 30, 30, 150, 80, 80, 150, 150];
+var noteWeight = [0, 0, 0.5, 1, 0, 0, 1, 0.5, 0.5, 1, 1];
 var imageDims = [	[55, -30], [28, -20], [58, -22], [60, -22], 
-					[55, 0], [40, 0], [63, -25],
+					[-25, -12], [-30, -23], [63, -25],
 					[-11, -25], [-12, -25], [-11, -25], [-11, -25], [-85, -25], [-85, -25], [-85, 0], [-85, 0]];
 var wordHor = [0, 0, 40, 40, 0, 0, 20, 
 				20, 20, 20, 20, -15, -48, -80, -80];
 function drawNote(type, x, y)
 {
-	/*
+	
 	ctx.beginPath();
-	drawLine(x,y, x-100,y); */
+	drawLine(0,y, 200,y);
     x += imageDims[type][0] + space*2;
     y += imageDims[type][1];
     ctx.drawImage(images[type],x,y);
