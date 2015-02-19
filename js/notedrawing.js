@@ -1,6 +1,6 @@
 /*
 var imageNames = [	'bass'0, 'treble'1, 'eigthRest'2, 'quarterRest'3, 'flat'4, 'sharp'5, 'whole'6,
-					'sixteenth'7, 'eigth'8, 'quarter'9, 'half'10, 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
+					'sixteenth'7, 'eigth'8, 'quarter'9, 'half'10, 'sixteenth2', 'eigth2', 'quarter2', 'half2', 'eights'15, 'eights2'16];
 */
 
 
@@ -26,10 +26,7 @@ var songNotes = [	[[1], 	[4, 4],			//each song is series of notes [?, ?] encapsu
 							[8, 1], [9, 4], [9, 1], [9, 5], [8, 1],
 							[4, -1], [9, -1], [9, 1], [9, 5], [8, 1], [10, 2]],		
 
-					[[0], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
-							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
-							[9, -2], [8, 2], [2], [8, 4], [8, 3], 
-							[9, -1], [8, 1], [2], [8, 2], [8, -3]],	
+					[[0], 	[11, -2, 0], [11, 6, 7]],	
 
 					[[1], 	[9, -2], [8, 2], [2], [8, 4], [8, 3],
 							[9, -1], [8, 1], [2], [8, 2], [8, -3], 
@@ -109,13 +106,15 @@ function redrawSideBar()
 		if(type > 3) x = noteX(type, notes[i][1])
 		if(type > 6 && x>offset + space*5)
 	    {
-	    	type += 4;
+	    	if(type < 11) type += 4;
+	    	else type ++;
 	    }
 		if(count==3)
 		{
 			ctx.globalAlpha = 0.2;
 			count++;
-			drawNote(type, x, y);
+			if(type > 10) drawEights(type, x, noteX(type, notes[i][2]), y);
+			else drawNote(type, x, y);
 			ctx.globalAlpha = 1;
 		} else
 		{
@@ -132,7 +131,8 @@ function redrawSideBar()
 					count++;
 				}
 			}
-			drawNote(type, x, y);
+			if(type > 10) drawEights(type, x, noteX(type, notes[i][2]), y);
+			else drawNote(type, x, y);
 		}
 	}
 }
@@ -148,8 +148,8 @@ function noteX(type, note)
 var images = new Array();
 var imageNames = [	'bass', 'treble', 'eigthRest', 'quarterRest', 'flat', 'sharp', 'whole',
 					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
-var noteSizes = [70, 70, 80, 150, 30, 30, 150, 80, 80, 150, 150];			// spacing between the notes
-var noteWeight = [0, 0, 0.5, 1, 0, 0, 1, 0.5, 0.5, 1, 1];					// how often a word will get drawn on the note
+var noteSizes = [70, 70, 80, 150, 30, 30, 150, 80, 80, 150, 150, 150];			// spacing between the notes
+var noteWeight = [0, 0, 0.5, 1, 0, 0, 1, 0.5, 0.5, 1, 1, 1];					// how often a word will get drawn on the note
 var imageDims = [	[55, -30], [28, -20], [58, -22], [60, -22], 
 					[-25, -12], [-30, -23], [63, -25],
 					[-11, -25], [-12, -25], [-11, -25], [-11, -25],
@@ -164,6 +164,24 @@ function drawNote(type, x, y)
     x += imageDims[type][0] + space*2;
     y += imageDims[type][1];
     ctx.drawImage(images[type],x,y);
+}
+function drawEights(type, x1, x2, y)
+{
+	var imageType = ((type-10)*4) + 5;
+	x1 += imageDims[imageType][0] + space*2;
+	x2 += imageDims[imageType][0] + space*2;
+    y += imageDims[imageType][1];
+	if(type==14)
+	{
+		ctx.drawImage(images[imageType],x1,y);
+		ctx.drawImage(images[imageType],x2,y+30);
+	} else
+	{
+		ctx.drawImage(images[imageType],x1,y);
+		ctx.drawImage(images[imageType],x2,y+30);
+	}
+	ctx.beginPath();
+	drawLine(0,y, 200,y);
 }
 function drawLine(x1, y1, x2, y2)
 {
