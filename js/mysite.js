@@ -73,8 +73,11 @@ var imageNames = [	'bass'0, 'treble'1, 'eigthRest'2, 'quarterRest'3, 'flat'4, 's
 					'sixteenth'7, 'eigth'8, 'quarter'9, 'half'10, 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
 */
 
-// 
-var songNotes = [	[[1], 	[4, 4],
+
+var songNotes = [	[[1], 	[4, 4],			//each song is series of notes [?, ?] encapsulated with [...],
+											//if note type doesnt need a position on staff, leave second
+											//thing blank. (eg. clefs).
+											//on the first line is the clef and a flat
 
 							[9, -2], [9, 1], [9, 5], [8, 1], [9, 7],
 							[9, 1], [9, 5], [8, 1], [9, -1], [5, 1],[9, 1], 
@@ -82,7 +85,8 @@ var songNotes = [	[[1], 	[4, 4],
 							[9, 5], [8, 1], [9, -1], [9, 1], [9, 5],
 							[8, 1], [9, 4], [9, 1], [9, 5], [8, 1],
 							[4, -1], [9, -1], [9, 1], [9, 5], [8, 1], [10, 2]],	
-
+							
+							//SECOND SONG
 					[[1], 	[4, 4], [4, 6], [4, 2],
 
 							[9, -2], [9, 1], [9, 5], [8, 1], [9, 7],
@@ -214,18 +218,19 @@ function noteX(type, note)
 var images = new Array();
 var imageNames = [	'bass', 'treble', 'eigthRest', 'quarterRest', 'flat', 'sharp', 'whole',
 					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
-var noteSizes = [70, 70, 80, 150, 30, 30, 150, 80, 80, 150, 150];
-var noteWeight = [0, 0, 0.5, 1, 0, 0, 1, 0.5, 0.5, 1, 1];
+var noteSizes = [70, 70, 80, 150, 30, 30, 150, 80, 80, 150, 150];			// spacing between the notes
+var noteWeight = [0, 0, 0.5, 1, 0, 0, 1, 0.5, 0.5, 1, 1];					// how often a word will get drawn on the note
 var imageDims = [	[55, -30], [28, -20], [58, -22], [60, -22], 
 					[-25, -12], [-30, -23], [63, -25],
-					[-11, -25], [-12, -25], [-11, -25], [-11, -25], [-85, -25], [-85, -25], [-85, 0], [-85, 0]];
+					[-11, -25], [-12, -25], [-11, -25], [-11, -25],
+					[-85, -25], [-85, -25], [-85, 0], [-85, 0]];			// fixing x, y where image is drawn from
 var wordHor = [0, 0, 40, 40, 0, 0, 20, 
-				20, 20, 20, 20, -15, -48, -80, -80];
+				20, 20, 20, 20, -15, -48, -80, -80];						// how far in x direction the word is pushed
 function drawNote(type, x, y)
 {
-	
+	/*
 	ctx.beginPath();
-	drawLine(0,y, 200,y);
+	drawLine(0,y, 200,y);*/
     x += imageDims[type][0] + space*2;
     y += imageDims[type][1];
     ctx.drawImage(images[type],x,y);
