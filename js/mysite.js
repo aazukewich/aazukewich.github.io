@@ -162,10 +162,12 @@ function redrawSideBar()
 	}
 	var percentH = $(window).height()/1000;
 	var percentW = $(window).height()/1250;
+	var position = offset;
 	for(var i = 0; i < notes.length; i++)
 	{
 		type = notes[i][0];
-		var y = noteY(i, startOffset);
+		var y = noteY(position-startOffset);
+		position += noteSizes[type];
 		var x = 0;
 		if(type > 3) x = noteX(type, notes[i][1])
 		if(x>offset + space*5)
@@ -191,9 +193,8 @@ function redrawSideBar()
 		}
 	}
 }
-function noteY(i, off)
+function noteY(y)
 {
-	y = 10+i*spacing-off;
 	if(y < 2000) y = Math.sqrt(y+300) * 42 - 650;
 	return y;
 }
@@ -205,6 +206,7 @@ function noteX(type, note)
 var images = new Array();
 var imageNames = [	'bass', 'treble', 'eigthRest', 'quarterRest', 'flat', 'sharp', 'whole',
 					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
+var noteSizes = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
 var imageDims = [	[55, -30], [28, -20], [58, -22], [60, -22], 
 					[55, 0], [40, 0], [63, -25],
 					[-11, -25], [-12, -25], [-11, -25], [-11, -25], [-85, -25], [-85, -25], [-85, 0], [-85, 0]];
