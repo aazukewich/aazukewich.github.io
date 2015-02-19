@@ -1,0 +1,40 @@
+#sidesection {
+	position: fixed;
+	width: 100%;
+}
+#myCanvas {
+	position: fixed;
+	width: 80vh;
+	height: 100vh;
+}
+#HomeLink {
+	margin-top: 12px;
+	font-size: 200%;
+	margin-left: 30px;
+	color: #bbbbbb !important;
+	margin-left: 0 !important;
+}
+.myNavLinks {
+	position: absolute;
+	cursor: pointer;
+	font-size: 95%;
+}
+.songList {
+	position: absolute;
+	cursor: pointer;
+	font-size: 75%;
+	display: inline;
+}
+
+
+#musicControls {
+	position: fixed !important;
+	margin-left: 4.94vh;
+	margin-top: 40vh;
+}
+.musicButton {
+	width: 20px;
+	height: 20px;
+	margin-top: 27px;
+	z-index:1040;
+}
