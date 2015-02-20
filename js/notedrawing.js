@@ -87,7 +87,7 @@ function redrawSideBar()
 	var c = document.getElementById("myCanvas");
 	ctx = c.getContext("2d");
 	ctx.clearRect (0 ,0 , 1000, 1000);
-	ctx.strokeStyle="#444444";
+	ctx.strokeStyle="#666666";
 	ctx.fillStyle = "#FFFFFF";
 	for (var i = 0; i < 5; i++)
 	{
@@ -100,8 +100,8 @@ function redrawSideBar()
 	{
 		$("#Link" + i.toString()).fadeOut(200);
 	}
-	var percentH = $(window).height()/1000;
-	var percentW = $(window).height()/1250;
+	var percentH = $(window).height()*0.9/(1000);
+	var percentW = $(window).height()*0.9/(1250);
 	var position = 80;
 	var drawNext = 0;
 
@@ -132,57 +132,41 @@ function redrawSideBar()
 	    	if(isEigth) type ++;
 	    	else type +=4;
 	    }
-		if(count==3)
+	    if(isEigth)
 		{
-			ctx.globalAlpha = 0.2;
-			count++;
-			if(isEigth)
-			{
-				drawEights(type, x, noteX(type, notes[i][2]), y);
-			} else
-			{
-				drawNote(type, x, y);
-			}
-			ctx.globalAlpha = 1;
+			drawEights(type, x, noteX(type, notes[i][2]), y);
 		} else
 		{
-			if(y>160 && count < 12)
+			drawNote(type, x, y);
+		}
+		if(y>160 && count < 12)
+		{
+			drawNext += noteLength;
+			if(drawNext >= 0.5)
 			{
-				drawNext += noteLength;
-				if(drawNext >= 0.5)
+				if(count != 3)
 				{
 					var item = document.getElementById("Link" + count.toString());
+					if(y>980) y = 2000;
 					if(count < 3)
 					{
 						item.style.marginTop = ((y-29)*percentH).toString()+"px";
 					} else
 					{
-						item.style.marginTop = ((y-20)*percentH).toString()+"px";
+						item.style.marginTop = ((y-22)*percentH).toString()+"px";
 					}
+					var extra = -5+x+(2*space);
 					if(isEigth)
 					{
-						if(type==11)
-						{
-							item.style.marginLeft = ((x+wordHor[9]+(2*space))*percentW).toString()+"px";
-						} else
-						{
-							item.style.marginLeft = ((x+wordHor[13]+(2*space))*percentW).toString()+"px";
-						}
+						item.style.marginLeft = ((extra+wordHor[(type-11)*4+9])*percentW).toString()+"px";
 					} else
 					{
-						item.style.marginLeft = ((x+wordHor[type]+(2*space))*percentW).toString()+"px";
+						item.style.marginLeft = ((extra+wordHor[type])*percentW).toString()+"px";
 					}
-					drawNext -= 1;
-					if(noteLength == 1) drawNext = 0;
-					count++;
 				}
-			}
-			if(isEigth)
-			{
-				drawEights(type, x, noteX(type, notes[i][2]), y);
-			} else
-			{
-				drawNote(type, x, y);
+				drawNext -= 1;
+				if(noteLength == 1) drawNext = 0;
+				count++;
 			}
 		}
 	}
