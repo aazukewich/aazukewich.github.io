@@ -6,6 +6,7 @@
 	position: fixed;
 	width: 80vh;
 	height: 100vh;
+	opacity: 0.3;
 }
 #HomeLink {
 	margin-top: 12px;
@@ -17,7 +18,7 @@
 .myNavLinks {
 	position: absolute;
 	cursor: pointer;
-	font-size: 125%;
+	font-size: 115%;
 }
 .songList {
 	position: absolute;

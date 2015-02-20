@@ -102,7 +102,7 @@ function redrawSideBar()
 	}
 	var percentH = $(window).height()/1000;
 	var percentW = $(window).height()/1250;
-	var position = 50;
+	var position = 80;
 	var drawNext = 0;
 
 
@@ -111,9 +111,19 @@ function redrawSideBar()
 		type = notes[i][0];
 		typeAlt = type;
 		var isEigth = type == 11;
-		position += noteSizes[type]/2;
+		//position += noteSizes[type]/2;
+		if(isNote(type))
+		{
+			if(!isNote(notes[i-1][0]))
+			{
+				if(i<2 || !isNote(notes[i-2][0]))
+				{
+					position += 90;
+				}
+			}
+		}
 		var y = noteY(position-startOffset);
-		position += noteSizes[type]/2;
+		position += noteSizes[type];
 		var noteLength = noteWeight[type];
 		var x = 0;
 		if(type > 3) x = noteX(type, notes[i][1])
@@ -177,6 +187,10 @@ function redrawSideBar()
 		}
 	}
 }
+function isNote(type)
+{
+	return (type!=0&&type!=1&&type!=4&&type!=5);
+}
 function noteY(y)
 {
 	//if(y < 2000) y = Math.sqrt(y+300) * 42 - 650;
@@ -189,10 +203,10 @@ function noteX(type, note)
 var images = new Array();
 var imageNames = [	'bass', 'treble', 'eigthRest', 'quarterRest', 'flat', 'sharp', 'whole',
 					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
-var noteSizes = [150, 150, 80, 150, 30, 30, 150, 80, 80, 150, 170, 170];			// spacing between the notes
+var noteSizes = [130, 130, 80, 150, 65, 65, 150, 80, 80, 150, 170, 170];			// spacing between the notes
 var noteWeight = [0, 0, 0.5, 1, 0, 0, 1, 0.5, 0.5, 1, 1, 1];					// how often a word will get drawn on the note
-var imageDims = [	[55, -30], [28, -20], [58, -22], [60, -22], 
-					[-25, -12], [-30, -23], [63, -25],
+var imageDims = [	[45, -30], [5, -20], [58, -22], [60, -22], 
+					[-15, -12], [-23, -23], [63, -25],
 					[-11, -25], [-12, -25], [-11, -25], [-11, -25],
 					[-85, -25], [-85, -25], [-85, 0], [-85, 0]];			// fixing x, y where image is drawn from
 var wordHor = [0, 0, 40, 40, 0, 0, 20, 
