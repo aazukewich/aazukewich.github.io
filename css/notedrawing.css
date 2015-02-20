@@ -17,12 +17,12 @@
 .myNavLinks {
 	position: absolute;
 	cursor: pointer;
-	font-size: 95%;
+	font-size: 125%;
 }
 .songList {
 	position: absolute;
 	cursor: pointer;
-	font-size: 75%;
+	font-size: 85%;
 	display: inline;
 }
 

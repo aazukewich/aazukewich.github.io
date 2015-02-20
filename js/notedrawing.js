@@ -142,7 +142,13 @@ function redrawSideBar()
 				if(drawNext >= 0.5)
 				{
 					var item = document.getElementById("Link" + count.toString());
-					item.style.marginTop = ((y-25)*percentH).toString()+"px";
+					if(count < 3)
+					{
+						item.style.marginTop = ((y-29)*percentH).toString()+"px";
+					} else
+					{
+						item.style.marginTop = ((y-20)*percentH).toString()+"px";
+					}
 					if(isEigth)
 					{
 						if(type==11)
@@ -183,7 +189,7 @@ function noteX(type, note)
 var images = new Array();
 var imageNames = [	'bass', 'treble', 'eigthRest', 'quarterRest', 'flat', 'sharp', 'whole',
 					'sixteenth', 'eigth', 'quarter', 'half', 'sixteenth2', 'eigth2', 'quarter2', 'half2'];
-var noteSizes = [150, 150, 80, 150, 30, 30, 150, 80, 80, 150, 150, 150];			// spacing between the notes
+var noteSizes = [150, 150, 80, 150, 30, 30, 150, 80, 80, 150, 170, 170];			// spacing between the notes
 var noteWeight = [0, 0, 0.5, 1, 0, 0, 1, 0.5, 0.5, 1, 1, 1];					// how often a word will get drawn on the note
 var imageDims = [	[55, -30], [28, -20], [58, -22], [60, -22], 
 					[-25, -12], [-30, -23], [63, -25],
