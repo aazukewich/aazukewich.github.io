@@ -174,7 +174,7 @@ function redrawSideBar()
 function noteY(y)
 {
 	//if(y < 2000) y = Math.sqrt(y+300) * 42 - 650;
-	return y/1.6;
+	return y/1.8;
 }
 function noteX(type, note)
 {
@@ -210,14 +210,26 @@ function drawEights(type, x1, x2, y)
 	{
 		ctx.drawImage(images[imageType],x1,y);
 		ctx.drawImage(images[imageType],x2,y+40);
+
 		ctx.beginPath();
-		drawLine(x1+96,y+27, x2+96,y+67);
+		ctx.moveTo(x1+96,y+27);
+		ctx.lineTo(x2+96,y+67);
+		ctx.lineTo(x2+86,y+67);
+		ctx.lineTo(x1+86,y+27);
+		ctx.closePath();
+		ctx.fill();
 	} else
 	{
 		ctx.drawImage(images[imageType],x1,y);
 		ctx.drawImage(images[imageType],x2,y+40);
+
 		ctx.beginPath();
-		drawLine(x1,y, x2,y+40);
+		ctx.moveTo(x1,y+1);
+		ctx.lineTo(x2,y+41);
+		ctx.lineTo(x2+10,y+41);
+		ctx.lineTo(x1+10,y+1);
+		ctx.closePath();
+		ctx.fill();
 	}
 }
 function drawLine(x1, y1, x2, y2)
